@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "freshcells.fullname" . }}-test-connection"
+  labels:
+    {{- include "freshcells.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "freshcells.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
