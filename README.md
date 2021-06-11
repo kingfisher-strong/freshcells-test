@@ -5,4 +5,10 @@ This helm charts assumes that you have Nginx ingress and cert manager running to
 
 To Apply helm chart :
 
-helm install freshcells freshcells/ --values freshcells/values.yaml --namespace freshcells
+`helm install freshcells freshcells/ --values freshcells/values.yaml --namespace freshcells`
+
+
+
+To build docker Image : 
+
+`docker build -t test/test:v1 .`
